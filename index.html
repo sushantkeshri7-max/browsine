@@ -33,18 +33,6 @@ background:radial-gradient(circle at top,#020617,#000 70%);
 color:var(--text);
 overflow-x:hidden
 }
-
-/* BLUR LIGHT BACKGROUND */
-.bg-lights{
-position:fixed;inset:0;z-index:-1;overflow:hidden
-}
-.light{
-position:absolute;width:420px;height:420px;
-border-radius:50%;
-filter:blur(120px);
-opacity:.6;
-animation:float 22s infinite alternate ease-in-out
-
 @keyframes float{
 0%{transform:translate(0,0)}
 100%{transform:translate(150px,-180px)}
@@ -310,4 +298,5 @@ document.getElementById("modal").classList.remove("active");
 
 </body>
 </html>
+
 
