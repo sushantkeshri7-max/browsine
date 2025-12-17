@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sushant | Professional Video Editor</title>
+<meta name="description" content="High-retention video editor for YouTube, Shorts & Reels. $15 Shorts & Reels editing.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<style>
+:root{
+--bg:#020617;
+--card:rgba(255,255,255,.05);
+--accent:#00f5ff;
+--accent2:#7c7cff;
+--text:#e5e7eb;
+--muted:#9ca3af;
+--glow:0 0 40px rgba(0,245,255,.25);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{
+background:radial-gradient(circle at top,#020617,#000 70%);
+color:var(--text);
+overflow-x:hidden
+}
+
+/* BLUR LIGHT BACKGROUND */
+.bg-lights{
+position:fixed;inset:0;z-index:-1;overflow:hidden
+}
+.light{
+position:absolute;width:420px;height:420px;
+border-radius:50%;
+filter:blur(120px);
+opacity:.6;
+animation:float 22s infinite alternate ease-in-out
+}
+.light.one{background:#00f5ff;top:10%;left:5%}
+.light.two{background:#7c7cff;top:60%;left:70%;animation-duration:26s}
+.light.three{background:#22c55e;top:30%;left:40%;animation-duration:30s}
+
+@keyframes float{
+0%{transform:translate(0,0)}
+100%{transform:translate(150px,-180px)}
+}
+
+section{padding:100px 10%}
+.section-title{
+font-size:2.4rem;
+margin-bottom:30px;
+position:relative
+}
+.section-title::after{
+content:"";
+width:60px;height:4px;
+background:var(--accent);
+position:absolute;left:0;bottom:-10px;border-radius:10px
+}
+
+p{color:var(--muted);line-height:1.6}
+
+.grid{display:grid;gap:25px}
+.three{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.four{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.shorts{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.long{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+
+.card{
+background:var(--card);
+border-radius:25px;
+padding:20px;
+box-shadow:var(--glow);
+transition:.4s
+}
+.card:hover{transform:translateY(-12px) scale(1.03)}
+
+button{
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+border:none;
+padding:15px 30px;
+border-radius:40px;
+font-weight:700;
+cursor:pointer;
+margin-top:20px
+}
+
+video,img{
+width:100%;
+border-radius:18px;
+object-fit:cover;
+cursor:pointer
+}
+
+.short video{aspect-ratio:9/16;height:360px}
+.long video{aspect-ratio:16/9;height:220px}
+
+/* MODAL */
+.modal{
+position:fixed;inset:0;
+background:rgba(0,0,0,.85);
+display:none;align-items:center;justify-content:center;
+z-index:999
+}
+.modal video{width:80%;max-height:80vh}
+.modal.active{display:flex}
+
+/* SOFTWARES */
+.software span{
+display:inline-block;
+background:rgba(255,255,255,.08);
+padding:10px 15px;
+border-radius:15px;
+font-weight:600
+}
+
+/* CONTACT */
+form{max-width:600px;margin:auto;display:grid;gap:15px}
+input,textarea{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+padding:15px;border-radius:15px;color:white
+}
+
+footer{text-align:center;padding:40px;color:var(--muted)}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50%;
+text-decoration:none;
+font-size:22px;
+box-shadow:0 0 20px rgba(37,211,102,.6)
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="bg-lights">
+<span class="light one"></span>
+<span class="light two"></span>
+<span class="light three"></span>
+</div>
+
+<!-- HERO -->
+<section>
+<h1 class="section-title">I Turn Raw Footage Into High-Retention Videos</h1>
+<p>YouTube • Shorts • Reels • Motion Graphics • Thumbnails</p>
+<button onclick="location.href='#contact'">Get a Free Editing Audit</button>
+</section>
+
+<!-- RESULTS -->
+<section>
+<h2 class="section-title">Results & Impact</h2>
+<div class="grid three">
+<div class="card">📈 Channels scaled from 0 → 50K+</div>
+<div class="card">🔥 Shorts crossed 1M+ views</div>
+<div class="card">⏱ Retention improved by 30–40%</div>
+</div>
+</section>
+
+<!-- SHORTS & REELS -->
+<section>
+<h2 class="section-title">YouTube Shorts & Instagram Reels</h2>
+<div class="grid shorts">
+<div class="card short"><video muted loop preload="metadata" poster="thumbs/reel1.jpg" src="videos/reel1.mp4"></video></div>
+<div class="card short"><video muted loop preload="metadata" poster="thumbs/reel2.jpg" src="videos/reel2.mp4"></video></div>
+<div class="card short"><video muted loop preload="metadata" poster="thumbs/reel3.jpg" src="videos/reel3.mp4"></video></div>
+</div>
+</section>
+
+<!-- LONG VIDEOS -->
+<section>
+<h2 class="section-title">Long-Form Videos</h2>
+<div class="grid long">
+<div class="card long"><video muted loop preload="metadata" poster="thumbs/long1.jpg" src="videos/long1.mp4"></video></div>
+<div class="card long"><video muted loop preload="metadata" poster="thumbs/long2.jpg" src="videos/long2.mp4"></video></div>
+</div>
+</section>
+
+<!-- THUMBNAILS -->
+<section>
+<h2 class="section-title">Thumbnail Design</h2>
+<div class="grid three">
+<div class="card"><img src="thumbs/thumb1.jpg"></div>
+<div class="card"><img src="thumbs/thumb2.jpg"></div>
+<div class="card"><img src="thumbs/thumb3.jpg"></div>
+</div>
+</section>
+
+<!-- SOFTWARES -->
+<section>
+<h2 class="section-title">Editing Softwares I Use</h2>
+<div class="grid four">
+<div class="card software"><span>Adobe Premiere Pro</span></div>
+<div class="card software"><span>After Effects</span></div>
+<div class="card software"><span>DaVinci Resolve</span></div>
+<div class="card software"><span>Photoshop</span></div>
+<div class="card software"><span>Illustrator</span></div>
+<div class="card software"><span>CapCut Pro</span></div>
+<div class="card software"><span>Audition</span></div>
+<div class="card software"><span>Topaz AI</span></div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section>
+<h2 class="section-title">Editing Packages (USD)</h2>
+<div class="grid three">
+<div class="card">
+<h3>YouTube Shorts / Reels</h3>
+<p style="font-size:1.6rem;font-weight:700">$15 / video</p>
+<p>Vertical 9:16 • Captions • Effects • High retention</p>
+</div>
+<div class="card">
+<h3>Long-Form YouTube</h3>
+<p style="font-size:1.6rem;font-weight:700">$80 – $150</p>
+<p>Story editing • Motion graphics • Sound design</p>
+</div>
+<div class="card">
+<h3>Monthly Retainer</h3>
+<p style="font-size:1.6rem;font-weight:700">Custom</p>
+<p>Dedicated editor • Priority delivery • Best value</p>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section>
+<h2 class="section-title">My Editing Process</h2>
+<div class="grid four">
+<div class="card">🎯 Goal & audience research</div>
+<div class="card">✂️ Retention-focused editing</div>
+<div class="card">🎨 Motion & sound design</div>
+<div class="card">🚀 Delivery & revisions</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2 class="section-title">Contact Me</h2>
+<form id="contactForm">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" placeholder="Project Details" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+</section>
+
+<footer>© 2025 Sushant — Professional Video Editor</footer>
+
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">💬</a>
+
+<div class="modal" id="modal"><video controls></video></div>
+
+<script>
+/* EMAILJS */
+emailjs.init("YOUR_PUBLIC_KEY");
+document.getElementById("contactForm").addEventListener("submit",e=>{
+e.preventDefault();
+emailjs.sendForm("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",e.target)
+.then(()=>alert("Message sent successfully!"));
+});
+
+/* GSAP */
+gsap.registerPlugin(ScrollTrigger);
+gsap.utils.toArray("section").forEach(sec=>{
+gsap.from(sec,{opacity:0,y:80,duration:1,
+scrollTrigger:{trigger:sec,start:"top 80%"}});
+});
+
+/* VIDEO PREVIEW */
+const vids=document.querySelectorAll("video");
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting)e.target.play();
+else e.target.pause();
+});
+},{threshold:.6});
+vids.forEach(v=>observer.observe(v));
+
+vids.forEach(v=>{
+v.addEventListener("mouseenter",()=>{v.muted=false;v.controls=true});
+v.addEventListener("mouseleave",()=>{v.muted=true;v.controls=false});
+v.addEventListener("click",()=>{
+document.getElementById("modal").classList.add("active");
+const mv=document.querySelector("#modal video");
+mv.src=v.src;mv.play();
+});
+});
+
+document.getElementById("modal").onclick=()=>{
+const mv=document.querySelector("#modal video");
+mv.pause();mv.src="";
+document.getElementById("modal").classList.remove("active");
+};
+</script>
+
+</body>
+</html>
